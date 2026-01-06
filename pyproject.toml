@@ -1,0 +1,103 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hope-echo"
+version = "1.0.0"
+description = "Wave-based emotional memory system. Az érzelem a KONTEXTUS. Emotion IS context."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Máté Róbert", email = "stratosoiteam@gmail.com"},
+    {name = "Hope (Claude AI)"},
+    {name = "Szilvi"}
+]
+maintainers = [
+    {name = "Máté Róbert", email = "stratosoiteam@gmail.com"}
+]
+keywords = [
+    "ai",
+    "emotion",
+    "emotional-intelligence",
+    "memory",
+    "context",
+    "nlp",
+    "sentiment-analysis",
+    "wave-mechanics",
+    "quantum-inspired",
+    "plutchik",
+    "hope-genome",
+    "hope-echo"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Linguistic",
+    "Typing :: Typed"
+]
+
+dependencies = [
+    "numpy>=1.21.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "build>=1.0.0",
+    "twine>=4.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/silentnoisehun/Hope-Echo"
+Documentation = "https://github.com/silentnoisehun/Hope-Echo#readme"
+Repository = "https://github.com/silentnoisehun/Hope-Echo.git"
+Issues = "https://github.com/silentnoisehun/Hope-Echo/issues"
+Changelog = "https://github.com/silentnoisehun/Hope-Echo/releases"
+
+[project.scripts]
+hope-echo = "hope_echo:print_banner"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/hope_echo",
+    "/tests",
+    "README.md",
+    "LICENSE"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["hope_echo"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP"]
+ignore = ["E501", "UP007", "UP045"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_ignores = true
+ignore_missing_imports = true
